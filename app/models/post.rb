@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
-  validates :user_id, :presence => true
+  
   has_many :comments
   belongs_to :user
   
   before_save :downcase
   
+  validates :user_id, :presence => true
   validates :content, :presence => true, :length => { :maximum => 144 }
 
 

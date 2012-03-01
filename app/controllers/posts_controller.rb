@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   
-  before_filter :signed_in?
-  
+  before_filter :authenticate_user!
+
   def index
     @post = Post.new
     @posts = Post.paginate(:page => params[:page], :per_page => 20).includes(:user).order('created_at DESC')
