@@ -1,7 +1,7 @@
 <ol class="comment">
 <% @post.comments.reorder('created_at desc').each do |comment| %>
   <hr>
-	<li class="comment"><strong><%= comment.post.user.email %>:</strong>
+	<li class="comment"><strong><%= comment.post.user.screen_name %>:</strong>
 	<%= comment.content %><br/>
 	<div>
 	<em><%= comment.created_at.strftime("%b%d at %k:%M") %></em>

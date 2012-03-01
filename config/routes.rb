@@ -1,12 +1,15 @@
 Crappr::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users do
+    match 'sign_in' => 'devise/sessions#new'
+    match 'sign_out' => 'devise/sessions#destroy'
+  end
 
-  # get "sign_in" => "sessions#new", :as => "sign_in"
-  # get "log_out" => "sessions#destroy", :as => "log_out"
-  # match 'sign_in' => 'devise/sessions#create'
   root:to => 'Pages#index'
-  resources :users #, :sessions
+  resources :users do
+    resources :profiles
+  end
+  resources :profiles, :only => [:new, :create, :edit, :destroy]
   resources :posts do
     resources :comments
   end

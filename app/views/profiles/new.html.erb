@@ -1,0 +1,11 @@
+<%= form_for [@user, @profile] do |f| %>
+	<h2>complete your profile</h2>
+	<br/>
+	<%= f.label :screen_name %>
+	<%= f.text_field :screen_name %>
+	<br/>
+	<%= f.label :bio, "about you" %>
+	<%= f.text_area :bio, :class => "area" %>
+	<br/>
+	<%= f.submit "slam" %>
+<% end %>

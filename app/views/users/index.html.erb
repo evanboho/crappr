@@ -1,22 +1,19 @@
 <h2>users</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-  </tr>
-
+ <ul>
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+ 
+    <li>
+    <% if user.profile.present? %>
+    <%= user.profile.screen_name %>
+    <% end %>
+    <%= user.screen_name %><br/>
+    <%= link_to 'show', user %>
+    <%= link_to 'edit', edit_user_path(user) %>
+    <%= link_to 'destroy', user, confirm: 'Are you sure?', method: :delete %>
+ 
+  </li> <br/>  
 <% end %>
-</table>
+</ul>
 
 <br />

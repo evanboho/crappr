@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable
 
    # Setup accessible (or protected) attributes for your model
-   attr_accessible :email, :password, :password_confirmation, :remember_me
+   attr_accessible :email, :password, :password_confirmation, :screen_name, :bio, :remember_me
   
   
   has_many :posts
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   # validates_presence_of :password, :on => :create
   # validates :screen_name, :presence => true, :uniqueness => true
   validates :email, :uniqueness => true, :on => :create
+  validates :screen_name, :presence => true, :uniqueness => true, :length => { :minimum => 4 }
   
   # def encrypt_password
   #     if password.present?

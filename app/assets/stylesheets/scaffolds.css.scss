@@ -23,31 +23,48 @@ li.comment {
   margin: auto 80px;
 }
 
+
 div#flash_notice {
   padding: 20px 20px;
   text-align: center;
   background: #bdc;
   margin: auto;
   width: 260px;
+  border: 1px black; }
+
+p.alert {
+  padding: 20px 20px;
+  text-align: center;
+  background: #ceb;
+  margin: 0px auto 0px auto;
+  width: 260px;
   border: 1px black;
 }
+
+p.notice {
+  padding: 20px 20px;
+  text-align: center;
+  background: #bdc;
+  margin: 0px auto 0px auto;
+  width: 260px;
+  border: 1px black; }
+
 
 nav {
   background-color: black;
   padding: 1em .7em;
   white-space: nowrap;
   text-align: center;
-  font-size: 14px;
-}
+  font-size: 14px; }
+
 div.slam {
-  margin-top: -50px;
-}
+  margin-top: -50px; }
+
 div.big {
   font-size: 20px;
   padding: 25px 10px;
   background:#000;
-  color: white;
-}
+  color: white; }
 
 .signup_field {
   margin-left: auto;
@@ -56,19 +73,18 @@ div.big {
   padding-top: 0px;
   margin-top: 15px;
   background-color: #ddd;
-  line-height: 25px;
-}
+  line-height: 25px; }
+
 .signin_field {
   width: 125px;
-  margin: auto;
-}
+  margin: auto; }
 
 .area {
-  width: 303px;
+  width: 302px;
   height: 50px;
-  margin: 0px -30px;
-  font-size: 18px;
-}
+  margin: 0px -29px;
+  font-size: 18px; }
+
 table.comments {
   width: 100%;
 }

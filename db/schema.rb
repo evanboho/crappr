@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301162243) do
+ActiveRecord::Schema.define(:version => 20120301181531) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20120301162243) do
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "users", :force => true do |t|
+    t.string   "screen_name"
+    t.string   "bio"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"

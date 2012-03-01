@@ -12,24 +12,11 @@
   <% end %>
 
   <div class="signup_field round">
-    <%= f.label :name, "name" %><br />
-    <%= f.text_field :name %>
-   <br/>
     <%= f.label :email, "email" %><br />
     <%= f.text_field :email %>
   </div>
-  <div class="signup_field round">
-	<%= f.label :screen_name, "screen name" %><br/>
-	<%= f.text_field :screen_name %>
-  </div>
-  <div class="signup_field round">
-    <%= f.label :password, "password" %><br />
-    <%= f.password_field :password %>
-   <br/>
-    <%= f.label :password_confirmation, "confirm password" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
   <div class="right">
+	
     <%= f.submit "join" %>
   </div>
 <% end %>
