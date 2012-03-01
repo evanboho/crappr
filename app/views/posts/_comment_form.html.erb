@@ -1,0 +1,6 @@
+<% @comment = Comment.new %>
+<%= form_for [@post, @comment] do |f| %>
+
+<%= f.text_area :content, :class => "area" %>
+<%= f.submit "comment", :class => "right" %>
+<% end %>

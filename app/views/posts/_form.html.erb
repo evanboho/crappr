@@ -1,0 +1,13 @@
+<%= form_for(@post) do |f| %>
+
+  <div class="slam">
+    <h4>take a slam</h4>
+    <%= f.text_area :content, :class => "area" %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+    
+  <div class="actions">
+    <%= f.submit "flush" %>
+  </div>
+  <br/>
+<% end %>

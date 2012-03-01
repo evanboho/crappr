@@ -1,0 +1,32 @@
+<%= render 'form' %>
+
+<h2>recent slams</h2>
+
+<% @posts.each do |post| %>
+  <hr>
+  <strong><%= post.user.screen_name %>:</strong> 
+  <%= post.content %>
+  <br/><br/>
+  
+ <table class="comments">
+	<tr>
+		<td> 
+	<%= link_to "comments(#{post.comments.count})", post %>
+ 		</td>
+		<td class="right">
+  <em><%= post.created_at.strftime("%b%d at %k:%M") %></em>
+ 		</td>
+	</tr>
+</table>
+
+<% end %>
+
+<hr>
+<%= will_paginate %>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
