@@ -1,5 +1,7 @@
 Crappr::Application.routes.draw do
   
+  devise_for :uzers
+
   get "sign_in" => "sessions#new", :as => "sign_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get 'signup' => 'Users#new', :as => 'sign_up'
