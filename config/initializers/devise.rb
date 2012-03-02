@@ -210,7 +210,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  require "omniauth-facebook"
+  # require "omniauth-facebook"
   config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3", # {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
     # {:client_options => {:ssl => {:ca_path => '/System/Library/Keychains'}}} # 127.0.0.1:3000
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
