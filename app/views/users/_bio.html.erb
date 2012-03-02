@@ -10,12 +10,14 @@
       </ul>
     </div>
   <% end %>
-  <div class="signup_field round">
+  <br/><br/>
+  <div>
     <%= f.label :bio, "write a haiku" %><br />
-    <%= f.text_field :bio %>
+    <%= f.text_area :bio, :class => "area" %>
   </div>
   <div class="right">
 	
     <%= f.submit "flush" %>
   </div>
+<br/>
 <% end %>

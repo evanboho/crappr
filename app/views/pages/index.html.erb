@@ -3,8 +3,8 @@
 
 <% if current_user %>
 <h2><%= link_to "welcome to crappr", posts_path, :class=>"chill" %></h2>
-<% if current_user.bio.nil? %>...
-  <% render '/users/bio' %>
+<% if current_user.bio.nil? %>
+  <%= render '/users/bio' %>
 <% end %>
 <% else %>
 <h2>welcome to crappr</h2>
