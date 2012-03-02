@@ -212,7 +212,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   require "omniauth-facebook"
   config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3"# , {:client_options => {:ssl => {:ca_path => '/System/Library/Keychains'}}} # 127.0.0.1:3000
-    {:scope => 'PERMISSION_1, PERMISSION_2, ETC', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
+    {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
     
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
