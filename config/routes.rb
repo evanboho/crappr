@@ -7,7 +7,6 @@ Crappr::Application.routes.draw do
 
   root:to => 'Pages#index'
   resources :users
-  resources :profiles, :only => [:new, :create, :edit, :destroy]
   resources :posts do
     resources :comments
   end

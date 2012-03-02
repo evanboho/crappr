@@ -10,28 +10,20 @@
       <%= link_to 'edit', edit_user_registration_path(@user) %>
     </td>
   </tr>
-  <% if @user.profile.present? %>
   <tr>
     <td>
 	  <b>screen_name:</b>
-      <%= @user.profile.screen_name %>
-    <td colspan="2">
-	  <%= link_to 'edit', edit_user_profile_path(@user) %>
-    </td>
+      <%= @user.screen_name %>
+     </td>
   </tr>
   <tr>
     <td>
 	  <b>bio:</b>
-      <%= @user.profile.bio %>
+      <%= @user.bio %>
     </td>
   </tr>
-  <% end %>
 </table>
   
 <br/><br/>
-
-<% if @user.profile.nil? %>
-  <%= link_to 'create profile', new_user_profile_path(@user) %>
-<% end %>
 
 <%= link_to 'back', posts_path %>

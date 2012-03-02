@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true, :on => :create
   validates :screen_name, :presence => true, :uniqueness => true, :length => { :minimum => 4 }
   
+  def admin?
+    
+  end
+  
   # def encrypt_password
   #     if password.present?
   #       self.password_salt = BCrypt::Engine.generate_salt
