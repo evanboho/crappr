@@ -2,8 +2,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Profile stuff
-      # t.string :screen_name
-      # t.string :bio
+      t.string :screen_name
+      t.string :bio
       
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
