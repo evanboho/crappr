@@ -8,5 +8,6 @@
 <% end %>
 <% else %>
 <h2>welcome to crappr</h2>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 <% end %>
 

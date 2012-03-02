@@ -1,10 +1,14 @@
 Crappr::Application.routes.draw do
   
-  devise_for :users do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     match 'sign_in' => 'devise/sessions#new'
     match 'sign_out' => 'devise/sessions#destroy'
   end
-
+  
+  # devise_scope :user do
+  #     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  #   end
+  
   root:to => 'Pages#index'
   resources :users
   resources :posts do
