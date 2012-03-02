@@ -15,8 +15,9 @@
 	  <%= link_to "see slams", posts_path %><br/>
 	  <%= link_to "log out ", destroy_user_session_path, :method => :delete %>
     <% else %>
-      <%= link_to "sign up", new_user_registration_path %>
-      <%= link_to "sign in", new_user_session_path %>
+      <%= link_to "sign up", new_user_registration_path %> |
+      <%= link_to "sign in", new_user_session_path %> |
+      <%= link_to "with facebook", user_omniauth_authorize_path(:facebook) %>
     <% end %>
 </nav>
 <% if notice.present? %>

@@ -211,9 +211,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # require "omniauth-facebook"
-  config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3" # {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
-    # {:client_options => {:ssl => {:ca_path => '/System/Library/Keychains'}}} # 127.0.0.1:3000
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+  
+  # Production
+  config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3", 
+                  {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  #Development
+  # config.omniauth :facebook, "358452770844233", "e1fcb6cbf2e79cd1c505819c048179ad" # Development
+  # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
   
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
