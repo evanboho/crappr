@@ -1,32 +1,47 @@
 <p id="notice"><%= notice %></p>
-
-<table>
+<h2>profile</h2>
+<table class="bio">
+  <% unless @user != current_user %> 
   <tr>
-	<td>
+	<td  class="right">
 	  <b>email:</b>
-      <%= @user.email %> 
-    </td>
-    <td>
-      <%= link_to 'edit', edit_user_registration_path(@user) %>
-    </td>
-  </tr>
-  <tr>
+	</td>
+	<td>
+      <%= @user.email %>
+    </td> 
+    </tr>
+  <% end %>
+	<tr>
     <td>
 	  <b>screen_name:</b>
+	<td>
       <%= @user.screen_name %>
      </td>
   </tr>
   <tr>
-    <td>
+    <td class="center" colspan="2">
+      <%= link_to 'edit', edit_user_registration_path(@user) unless @user != current_user %>
+     <hr>
+    </td>
+  </tr>
+  <tr>
+   <td colspan="2">
 	  <b>bio:</b>
       <%= @user.bio %>
     </td>
-    <td>
-	  <%= link_to 'edit', edit_user_path(@user) %>
+    </tr>
+    <tr>
+    <td  colspan ="2" class="center">
+	  <%= link_to 'edit', edit_user_path(@user) unless @user != current_user %>
 	</td>
   </tr>
-</table>
-  
-<br/><br/>
+</table><hr><br/>
 
-<%= link_to 'back to slams', posts_path %>
+<% unless @user.posts.empty? %>
+  <h2>recent slams</h2>
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/post', :post => post %>
+  <% end %>
+<% end %>
+
+

@@ -11,7 +11,7 @@
 <nav class="header">
 	<h2><%= link_to "crappr", root_path %></h2>
 	<% if current_user %>
-	  logged in as <%= current_user.screen_name %>.<br/>
+	  logged in as <%= link_to current_user.screen_name, current_user %>.<br/>
 	  <%= link_to "see slams", posts_path %><br/>
 	  <%= link_to "log out ", destroy_user_session_path, :method => :delete %>
     <% else %>

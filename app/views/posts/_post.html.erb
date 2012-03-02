@@ -1,0 +1,16 @@
+<hr>
+<strong><%= link_to post.user.screen_name, post.user %>:</strong> 
+<%= post.content %>
+<br/>
+<br/>
+  
+<table class="comments">
+  <tr>
+    <td> 
+	  <%= link_to "comments(#{post.comments.count})", post %>
+ 	</td>
+	<td class="right">
+      <em><%= post.created_at.strftime("%b%d at %k:%M") %></em>
+ 	</td>
+  </tr>
+</table>

@@ -2,12 +2,12 @@
 
 
 <% if current_user %>
-<h2><%= link_to "welcome to crappr", posts_path, :class=>"chill" %></h2>
-<% if current_user.bio.nil? %>
+<h2><%= link_to "welcome to crappr", posts_path, :class=>"chill" %></h2><br/>
+<% if current_user.bio.blank? %>
+  
   <%= render '/users/bio' %>
 <% end %>
 <% else %>
 <h2>welcome to crappr</h2>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 <% end %>
 
