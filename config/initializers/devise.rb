@@ -211,9 +211,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require "omniauth-facebook"
-  config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3"# , {:client_options => {:ssl => {:ca_path => '/System/Library/Keychains'}}} # 127.0.0.1:3000
-    {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
-    
+  config.omniauth :facebook, "126704914122402", "145e75ea370c0de5faee86970b18eea3", {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} #Heroku
+  # {:client_options => {:ssl => {:ca_path => '/System/Library/Keychains'}}} # 127.0.0.1:3000
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
