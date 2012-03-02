@@ -5,10 +5,10 @@ Crappr::Application.routes.draw do
     match 'sign_out' => 'devise/sessions#destroy'
   end
   
-  # devise_scope :user do
-  #   get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
-  # end
-  # 
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
+  
   root:to => 'Pages#index'
   resources :users
   resources :posts do
