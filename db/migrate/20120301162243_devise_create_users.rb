@@ -24,7 +24,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
       
       ## Facebookable
-      # t.boolean :omniauth_facebook, :default => false
+      t.boolean :omniauth_facebook, :default => false
 
       ## Encryptable
       # t.string :password_salt
