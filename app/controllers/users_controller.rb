@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  before_filter :signed_in?, :only => [:index, :edit, :show, :update, :destroy]
+  #before_filter :signed_in?, :only => [:index, :edit, :show, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:index, :edit, :show, :update, :destroy]
+  
   
   def index
     @users = User.all
