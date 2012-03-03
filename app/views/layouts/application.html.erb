@@ -11,7 +11,7 @@
 <nav class="header">
 	<h2><%= link_to "crappr", root_path %></h2>
 	<% if current_user %>
-	  logged in as <%= link_to current_user.screen_name, current_user %>.<br/>
+	  logged in: <%= link_to current_user.screen_name, current_user %>.<br/>
 	  <%= link_to "see slams", posts_path %><br/>
 	  <%= link_to "log out ", destroy_user_session_path, :method => :delete %>
     <% else %>
@@ -21,10 +21,10 @@
     <% end %>
 </nav>
 <% if notice.present? %>
-<p class="notice"><%= notice %></p>
+<p class="round notice"><%= notice.downcase %></p>
 <% end %>
 <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
+<p class="round notice alert"><%= alert.downcase %></p>
 <% end %>
 
 <div class="round container">

@@ -1,41 +1,40 @@
 <p id="notice"><%= notice %></p>
-<h2>profile</h2>
+<h2><%= @user.screen_name %></h2><hr>
 <table class="bio">
-  <% unless @user != current_user %> 
+  
+  <% unless @user.bio.blank? %>
   <tr>
-	<td  class="right">
-	  <b>email:</b>
-	</td>
-	<td>
-      <%= @user.email %>
-    </td> 
-    </tr>
-  <% end %>
-	<tr>
-    <td>
-	  <b>screen_name:</b>
-	<td>
-      <%= @user.screen_name %>
-     </td>
+	<td class="center">
+    <b>bio</b><br>
+    <%= @user.bio %>
+   </td>
   </tr>
+  <% end %>
+  <% if @user == current_user %> 
+  <tr>
+	<td class="center"><hr><br>
+	<i>(for your eyes only)</i><br/>
+	<b>email</b><br>
+      <%= @user.email %><br>
+      
+    </td> 
+  </tr>
+ 
   <tr>
     <td class="center" colspan="2">
-      <%= link_to 'edit', edit_user_registration_path(@user) unless @user != current_user %>
-     <hr>
+	
+    <% if @user.omniauth_facebook %>
+    <%= link_to 'edit info', edit_user_path(@user) %>
+    <% else %>
+    <%= link_to 'edit info', edit_user_registration_path(@user) %><br>
+   
+    <% end %>
+    <%= link_to "delete my account", registration_path(@user), :confirm => "Are you sure?", :method => :delete %>.
+    <% end %>
     </td>
   </tr>
-  <tr>
-   <td colspan="2">
-	  <b>bio:</b>
-      <%= @user.bio %>
-    </td>
-    </tr>
-    <tr>
-    <td  colspan ="2" class="center">
-	  <%= link_to 'edit', edit_user_path(@user) unless @user != current_user %>
-	</td>
-  </tr>
-</table><hr><br/>
+  
+</table><br/>
 
 <% unless @user.posts.empty? %>
   <h2>recent slams</h2>

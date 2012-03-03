@@ -47,11 +47,11 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_path, notice: 'SLAM!' }
+        format.html { redirect_to posts_path, :notice => "slam" }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { redirect_to posts_path }
-        flash[:notice] = "shit."
+        flash[:alert] = "shit."
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

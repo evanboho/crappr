@@ -1,6 +1,21 @@
-<h2>edit bio</h2>
+<h2>edit</h2>
 
-<%= render 'bio' %>
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	      <ul>
+	      <% @user.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	<%= render 'screen_name', :f => f %><br/>
+	<%= render 'bio', :f => f %>
+	<%= f.submit "flush" %>
+<% end %>
 <br/><hr>
-<%= link_to 'back', @user %> |
-<%= link_to 'all users', users_path %>
+<%= link_to 'your profile', @user %> |
+<%= link_to 'see slams', posts_path %>

@@ -26,11 +26,6 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
   end
 
   # GET /users/1/edit
@@ -42,15 +37,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    respond_to do |format|
-      if @user.save
-        # sign_in @user
-        format.html { redirect_to user_profile_path, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      sign_in_and_redirect_to user_profile_path, notice: 'User was successfully created.'
+    else
+      redirect_to new_user_registration_url
     end
   end
 

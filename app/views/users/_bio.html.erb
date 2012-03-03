@@ -1,22 +1,4 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <br/><br/>
-  <div>
-    <%= f.text_area :bio, :class => "area", :placeholder => "please write a short bio..." %>
-  </div>
-  <div class="right">
-	
-    <%= f.submit "flush" %>
-  </div>
-<br/>
-<% end %>
+<div>
+  <b><%= f.label :bio, "bio:" %></b>
+  <%= f.text_area :bio, :class => "area", :placeholder => "please write a short bio..." %>
+</div>

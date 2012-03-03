@@ -25,30 +25,26 @@ li.comment {
 
 
 div#flash_notice {
-  padding: 20px 20px;
+  padding: 0px;
   text-align: center;
   background: #bdc;
   margin: auto;
   width: 260px;
   border: 1px black; }
 
-p.alert {
-  padding: 20px 20px;
+p.notice {
+  padding: 10px 23px;
   text-align: center;
-  background: #ceb;
+  background: #ccc;
   margin: 0px auto 0px auto;
   width: 260px;
   border: 1px black;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold; }
+p.alert {
+  background-color: #ef7777;
 }
-
-p.notice {
-  padding: 20px 20px;
-  text-align: center;
-  background: #bdc;
-  margin: 0px auto 0px auto;
-  width: 260px;
-  border: 1px black; }
-
 
 nav {
   background-color: black;
@@ -95,7 +91,9 @@ td.center {
   text-align: center;
 }
 table.bio {
-  padding-top: 20px;
+  padding-top: 0px;
+  width:100%;
+  
 }
 
 h2 {

@@ -4,8 +4,11 @@
 <% if current_user %>
 <h2><%= link_to "welcome to crappr", posts_path, :class=>"chill" %></h2><br/>
 <% if current_user.bio.blank? %>
-  
-  <%= render '/users/bio' %>
+  <%= form_for current_user do |f| %>
+  <%= render 'users/screen_name', :f => f %><br>
+  <%= render '/users/bio', :f => f %>
+  <%= f.submit "flush" %>
+  <% end %>
 <% end %>
 <% else %>
 <h2>welcome to crappr</h2>
