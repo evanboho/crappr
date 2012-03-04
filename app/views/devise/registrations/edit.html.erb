@@ -8,7 +8,7 @@
 
   <div><%= f.label :screen_name, "screen name" %><br />
   <%= f.text_field :screen_name %></div>
-<% if @user.password_required? %>
+
   <div><%= f.label :current_password, "current password" %> <br />
   <%= f.password_field :current_password %></div>
 
@@ -17,8 +17,6 @@
 
   <div><%= f.label :password_confirmation, "confirm new password" %><br />
   <%= f.password_field :password_confirmation %></div>
-<% end %>
- 
 
   <div><%= f.submit "Update" %></div>
 <% end %>

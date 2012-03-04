@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
    attr_accessible :email, :omniauth_facebook, :avatar, :password, :password_confirmation, :screen_name, :bio, :remember_me
   
   
-  has_many :posts
+  has_many :posts, :dependent => :destroy
   has_many :comments
   has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "40x40>" },
                     :url => "/assets/users/:id/:style/:basename.:extension",
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
       if User.where(:screen_name => screen_name).empty?
         User.new(:omniauth_facebook => true, :screen_name => screen_name, :email => data.email, :password => Devise.friendly_token[0,20]) 
       else
-        screen_name = screen_name + '69'
+        screen_name = screen_name + '.2'
         User.new(:omniauth_facebook => true, :screen_name => screen_name, :email => data.email, :password => Devise.friendly_token[0,20]) 
       end
     end

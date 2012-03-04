@@ -16,9 +16,8 @@
   <% if @user == current_user %> 
   <tr>
 	<td class="center"><hr><br>
-	<b>email:</b><br>
+	<b>email: </b><%= @user.email %><br>
 	<i>(for your eyes only)</i><br>
-      <%= @user.email %><br>
       
     </td> 
   </tr>
@@ -29,7 +28,8 @@
     <% if @user.omniauth_facebook %>
     <%= link_to 'edit info', edit_user_path(@user) %>
     <% else %>
-    <%= link_to 'edit info', edit_user_registration_path(@user) %><br>
+    <%= link_to 'edit profile', edit_user_path(@user) %> |
+    <%= link_to 'edit email', edit_user_registration_path(@user) %><br>
    
     <% end %>
     <%= link_to "delete my account", registration_path(@user), :confirm => "Are you sure?", :method => :delete %>.

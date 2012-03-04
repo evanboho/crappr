@@ -10,7 +10,7 @@
   <%= render 'users/screen_name', :f => f %><br>
   <% end %>
   <%= render '/users/bio', :f => f %>
-  <% if current_user.avatar_file_name.blank? %>
+  <% if current_user.avatar_file_name.nil? %>
   <br><div class="center"><b>and upload a photo:</b></div>
   <p class="right"><%= f.file_field :avatar %></p><hr>
   <% end %>
