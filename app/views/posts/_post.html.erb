@@ -1,9 +1,8 @@
 <hr>
 <table>
-  
   <tr>
-	<% unless post.user.avatar.nil? %>
-    <td rowspan="3">
+	<% unless post.user.avatar_file_name.nil? %>
+    <td rowspan="1">
       <%= image_tag post.user.avatar.url(:thumb) %>
     </td>
     <% end %>
@@ -14,9 +13,7 @@
 		</strong> 
 	</td>
   </tr>
-
-<br/>
-<br/>
+</table>
   
 <table class="comments">
   <tr>
