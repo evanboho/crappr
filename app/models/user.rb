@@ -6,11 +6,17 @@ class User < ActiveRecord::Base
         
 
    # Setup accessible (or protected) attributes for your model
-   attr_accessible :email, :omniauth_facebook, :password, :password_confirmation, :screen_name, :bio, :remember_me
+   attr_accessible :email, :omniauth_facebook, :avatar, :password, :password_confirmation, :screen_name, :bio, :remember_me
   
   
   has_many :posts
   has_many :comments
+  has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "40x40>" },
+                    :url => "/assets/users/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+  
+  validates_attachment_size :avatar, :less_than => 1.megabyte
+  validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/png', 'image/gif']
   
   # attr_accessor :password
   # before_save :encrypt_password

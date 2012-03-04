@@ -11,6 +11,7 @@ gem 'pg'
 gem 'will_paginate', '3.0.3'
 gem 'devise'
 gem 'omniauth-facebook'
+gem "paperclip", "~> 2.7"
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -19,8 +19,11 @@ li.comment {
   margin-left: 20px;
 }
 
-.right {
+td.right {
   margin: auto 80px;
+}
+p.right {
+  margin-left: 40px;
 }
 
 
@@ -87,7 +90,7 @@ table.comments {
 td.right {
   text-align: right;
 }
-td.center {
+.center {
   text-align: center;
 }
 table.bio {

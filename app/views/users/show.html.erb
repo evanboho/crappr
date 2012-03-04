@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @user.screen_name %></h2><hr>
+<h2>
+	<%= image_tag @user.avatar.url(:medium) unless @user.avatar_file_name.nil? %><br>
+
+<%= @user.screen_name %></h2><hr>
 <table class="bio">
   
   <% unless @user.bio.blank? %>
@@ -13,8 +16,8 @@
   <% if @user == current_user %> 
   <tr>
 	<td class="center"><hr><br>
-	<i>(for your eyes only)</i><br/>
-	<b>email</b><br>
+	<b>email:</b><br>
+	<i>(for your eyes only)</i><br>
       <%= @user.email %><br>
       
     </td> 
@@ -22,7 +25,7 @@
  
   <tr>
     <td class="center" colspan="2">
-	
+	<br>
     <% if @user.omniauth_facebook %>
     <%= link_to 'edit info', edit_user_path(@user) %>
     <% else %>

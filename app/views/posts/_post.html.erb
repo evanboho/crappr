@@ -1,6 +1,20 @@
 <hr>
-<strong><%= link_to post.user.screen_name, post.user %>:</strong> 
-<%= post.content %>
+<table>
+  
+  <tr>
+	<% unless post.user.avatar.nil? %>
+    <td rowspan="3">
+      <%= image_tag post.user.avatar.url(:thumb) %>
+    </td>
+    <% end %>
+	<td>
+		<strong>
+		  <%= link_to post.user.screen_name, post.user %>:<br>
+		  <%= post.content %>
+		</strong> 
+	</td>
+  </tr>
+
 <br/>
 <br/>
   

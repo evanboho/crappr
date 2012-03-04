@@ -3,6 +3,14 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   before_filter :authenticate_user!
+  before_filter :current_user?, :only => [:edit, :update, :destroy]
+
+  def current_user?
+    @user = Post.find(params[:id]).user
+    if @user != current_user
+      redirect_to posts_path, :notice => "you may not access that crap"
+    end
+  end
 
   def index
     @post = Post.new

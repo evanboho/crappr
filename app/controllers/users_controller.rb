@@ -3,11 +3,17 @@ class UsersController < ApplicationController
   # GET /users.json
   #before_filter :signed_in?, :only => [:index, :edit, :show, :update, :destroy]
   before_filter :authenticate_user!, :only => [:index, :edit, :show, :update, :destroy]
+  before_filter :current_user?, :only => [:edit, :update, :destroy]
   
+  def current_user?
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to users_path, :notice => "you may not access that crap"
+    end
+  end
   
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

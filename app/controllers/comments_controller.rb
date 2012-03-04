@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comment.build
   end
   
   def index
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment posted"
       redirect_to post_path(@post)
     else
-      render 'new'
+      redirect_to post_path(@post), :alert => "shit"
     end
   end
   
@@ -32,6 +33,10 @@ class CommentsController < ApplicationController
   end
   
   def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    redirect_to @post
   end
   
 end

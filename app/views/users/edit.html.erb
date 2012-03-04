@@ -1,6 +1,6 @@
 <h2>edit</h2>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
 	<% if @user.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -14,7 +14,19 @@
 	  <% end %>
 	<%= render 'screen_name', :f => f %><br/>
 	<%= render 'bio', :f => f %>
+	<p>
+	<b>photo:</b>
+	<% unless @user.avatar_file_name.blank? %><br>
+	<%= image_tag @user.avatar.url(:thumb) %><br>
+	change<br>
+	<% else %>
+	please add one
+	<% end %>
+	</p>
+	<%= f.file_field :avatar %><br>
+	<hr>
 	<%= f.submit "flush" %>
+	
 <% end %>
 <br/><hr>
 <%= link_to 'your profile', @user %> |

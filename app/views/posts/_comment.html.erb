@@ -6,6 +6,10 @@
 	<div>
 	<em><%= comment.created_at.strftime("%b%d at %k:%M") %></em>
 	</div>
+	<% if current_user == comment.post.user %>
+	  
+	  <%= link_to 'delete', [@post, comment], :method => :delete %>
+    <% end %>
 	</li>
 
 <% end %>
