@@ -13,10 +13,11 @@ class User < ActiveRecord::Base
   has_many :comments
   has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "40x40>" },
                     :storage => :s3,
-                    :bucket => 'S3_BUCKET',
+                    # :bucket => 'on-the-crappr',  # Development
+                    :bucket => 'on-the-crappr.heroku', #Production
                     :s3_credentials => {
-                      :access_key_id => ENV['S3_KEY'],
-                      :secret_access_key => ENV['S3_SECRET']
+                      :access_key_id => 'AKIAJ4PCXCFUIFXK3LFQ',
+                      :secret_access_key => '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'
                     }
               
                     
