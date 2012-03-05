@@ -12,8 +12,16 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :comments
   has_attached_file :avatar, :styles => { :medium => "150x150>", :thumb => "40x40>" },
-                    :url => "/assets/users/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
+                    :storage => :s3,
+                    :bucket => 'S3_BUCKET',
+                    :s3_credentials => {
+                      :access_key_id => ENV['S3_KEY'],
+                      :secret_access_key => ENV['S3_SECRET']
+                    }
+              
+                    
+                    #:url => "/assets/users/:id/:style/:basename.:extension",
+                    #:path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
   
   validates_attachment_size :avatar, :less_than => 1.megabyte
   validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/png', 'image/gif']
